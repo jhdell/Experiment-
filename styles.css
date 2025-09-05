@@ -1,14 +1,14 @@
-/* ========= charity: water — Final (centered equation + larger hero text) ========= */
+/* ========= charity: water — Pixel‑match final ========= */
 :root{
---brand-yellow:#F7C600;
+--brand-yellow:#FFD200; /* charity: water yellow approximation */
 --brand-black:#0a0a0a;
 --text-on-dark:#ffffff;
 --text-on-light:#111111;
 
 
-/* Equation sizing */
---icon-box: 190px; /* fixed height for tile row */
---icon-size: 180px; /* width of each image box */
+/* Equation sizing — keeps icons and equals perfectly aligned */
+--tile-w: 178px; /* width of each image tile */
+--tile-h: 178px; /* height of each image tile */
 }
 
 
@@ -17,20 +17,23 @@ html,body{height:100%}
 body{margin:0;font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text-on-light);background:#fff;line-height:1.55}
 h1,h2,h3{font-family:"Montserrat",Arial,sans-serif}
 img{display:block;max-width:100%;height:auto}
+
+
+/* Accessibility */
 .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
 .skip-link:focus{left:0;top:0;background:#fff;padding:.5rem;z-index:999}
 :focus-visible{outline:3px solid var(--brand-yellow);outline-offset:3px}
 
 
-/* ===== HERO: larger type to balance the image ===== */
+/* ===== HERO: side‑by‑side; larger type to balance image ===== */
 .hero{display:grid;grid-template-columns:minmax(420px,1fr) minmax(420px,1fr);min-height:92vh}
-.hero-left{background:var(--brand-black);color:var(--text-on-dark);padding:clamp(1.5rem,5vw,3.5rem);display:flex;flex-direction:column}
+.hero-left{background:var(--brand-black);color:var(--text-on-dark);padding:clamp(1.6rem,5vw,3.6rem);display:flex;flex-direction:column}
 .logo{display:inline-flex;align-items:center;gap:.75rem;text-decoration:none;color:inherit}
 .logo-icon{width:30px;height:30px;background:var(--brand-yellow);border-radius:4px;display:inline-block}
 .logo-text{font-family:Georgia,"Times New Roman",serif;font-size:1.35rem;letter-spacing:.04em}
 .hero-copy{max-width:48ch}
-.headline{margin:.35rem 0 1.2rem;font-weight:800;font-size:clamp(2.8rem,6.2vw,4.75rem);line-height:1.03}
-.lede{color:#e8e8e8;font-size:clamp(1.05rem,2.3vw,1.25rem);margin-bottom:1.25rem}
+.headline{margin:.35rem 0 1.2rem;font-weight:800;font-size:clamp(2.9rem,6.2vw,4.8rem);line-height:1.04}
+.lede{color:#e8e8e8;font-size:clamp(1.06rem,2.3vw,1.24rem);margin-bottom:1.25rem}
 .cta{text-align:center}
 .btn-cta{display:inline-block;background:var(--brand-yellow);color:#000;text-decoration:none;font-weight:800;padding:1rem 1.25rem;border-radius:6px;box-shadow:0 2px 0 rgba(0,0,0,.25);transition:transform 160ms ease,box-shadow 160ms ease,filter 160ms ease;margin:0 auto}
 .btn-cta:hover,.btn-cta:focus-visible{transform:translateY(-1px);box-shadow:0 6px 14px rgba(0,0,0,.28);filter:brightness(1.02);outline:none}
@@ -38,33 +41,36 @@ img{display:block;max-width:100%;height:auto}
 .hero-right img{width:100%;height:100%;object-fit:cover;object-position:center}
 
 
-/* ===== JUSTIFICATION: centered, perfectly aligned ===== */
-.justification{background:#fff;text-align:center;padding:clamp(1.5rem,4vw,3rem) 1rem 2.4rem}
+/* ===== JUSTIFICATION: centered, horizontal, perfectly aligned ===== */
+.justification{background:#fff;text-align:center;padding:clamp(1.7rem,4vw,3.2rem) 1rem 3.2rem}
 
 
-/* Wrap to center the whole block under the hero */
-.equation-wrap{display:flex;justify-content:center}
+/* Center the entire equation under the hero */
+.equation-outer{display:flex;justify-content:center}
 
 
-/* 5 columns (item = item = item), 2 rows (icons + captions) */
+/* Use a 5‑column/2‑row grid so icons align and captions never clip */
 .equation{
 display:grid;
-grid-template-columns: var(--icon-size) auto var(--icon-size) auto var(--icon-size);
-grid-template-rows: var(--icon-box) auto;
+grid-template-columns: var(--tile-w) auto var(--tile-w) auto var(--tile-w);
+grid-template-rows: var(--tile-h) auto;
 column-gap: clamp(1.2rem, 5vw, 3rem);
 row-gap: .8rem;
-align-items:start; /* align by the icon row top */
+align-items:start; /* align by icon row top */
+width:max-content; /* shrink‑wrap to contents so centering is exact */
 }
 
 
-.item{margin:0;display:grid;grid-template-rows:var(--icon-box) auto;justify-items:center}
-.img-wrap{width:var(--icon-size);height:var(--icon-box);position:relative}
+/* Figures: fixed image tile + caption; identical dimensions so baselines line up */
+.item{margin:0;display:grid;grid-template-rows:var(--tile-h) auto;justify-items:center}
+.tile{width:var(--tile-w);height:var(--tile-h);position:relative}
 .circle-bg::before{content:"";position:absolute;inset:-12%;background:radial-gradient(ellipse at center,#f0f0f0 0%,#ffffff 70%);border-radius:50%;z-index:0}
-.circle-bg img{position:relative;z-index:1;margin:0 auto;max-width:100%;max-height:100%;object-fit:contain}
-.item figcaption{margin-top:.5rem;font-weight:800;line-height:1.2;min-height:2.6em;display:flex;align-items:flex-start;justify-content:center}
+.tile img{position:relative;z-index:1;margin:0 auto;max-width:100%;max-height:100%;object-fit:contain}
+.item figcaption{margin-top:.55rem;font-weight:800;line-height:1.2;min-height:2.6em;display:flex;align-items:flex-start;justify-content:center}
 
 
-.equals{grid-row:1 / span 1;align-self:center;height:var(--icon-box);display:flex;align-items:center;justify-content:center;font-size:clamp(1.9rem,5.4vw,3.4rem);font-weight:900;color:#1f1f1f}
+/* Equals signs: centered relative to icon row height */
+.equals{grid-row:1 / span 1;align-self:center;height:var(--tile-h);display:flex;align-items:center;justify-content:center;font-size:clamp(1.9rem,5.4vw,3.4rem);font-weight:900;color:#1f1f1f}
 
 
 .bottom-band{height:6px;background:var(--brand-yellow);margin:clamp(1.1rem,3vw,1.8rem) auto 0;max-width:1100px}
@@ -72,11 +78,13 @@ align-items:start; /* align by the icon row top */
 
 
 /* ===== Responsive ===== */
-@media (max-width:800px){
+@media (max-width:900px){
 .hero{grid-template-columns:1fr}
 .hero-right{order:2}
 .hero-left{padding:2rem 1.25rem}
 }
-@media (max-width:720px){ :root{ --icon-box: 160px; --icon-size: 150px; } }
+@media (max-width:720px){
+:root{ --tile-w: 150px; --tile-h: 150px; }
+}
 @media (prefers-reduced-motion:reduce){.btn-cta{transition:none}}
 .site-footer{height:1px}
