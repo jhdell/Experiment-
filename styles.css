@@ -1,12 +1,5 @@
-/* ========= charity: water — Landing Page (refined) ========= */
-:root{
---brand-yellow:#F7C600;
---brand-black:#0a0a0a;
---text-on-dark:#ffffff;
---text-on-light:#111111;
-}
-
-
+/* ========= charity: water — Landing Page (refined & clean) ========= */
+:root{ --brand-yellow:#F7C600; --brand-black:#0a0a0a; --text-on-dark:#ffffff; --text-on-light:#111111; }
 *{box-sizing:border-box}
 html,body{height:100%}
 body{margin:0;font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text-on-light);background:#fff;line-height:1.55}
@@ -17,52 +10,44 @@ img{display:block;max-width:100%;height:auto}
 :focus-visible{outline:3px solid var(--brand-yellow);outline-offset:3px}
 
 
-/* ===== HERO: two columns kept on most screens ===== */
-.hero{
-display:grid;
-grid-template-columns:minmax(340px,1fr) minmax(340px,1fr);
-min-height:88vh; /* tall like the mockup */
-}
+/* ===== HERO: enforce side-by-side on desktop ===== */
+.hero{display:grid;grid-template-columns:minmax(360px,1fr) minmax(360px,1fr);min-height:88vh}
 .hero-left{background:var(--brand-black);color:var(--text-on-dark);padding:clamp(1.25rem,4vw,3rem);display:flex;flex-direction:column}
 .logo{display:inline-flex;align-items:center;gap:.75rem;text-decoration:none;color:inherit}
 .logo-icon{width:28px;height:28px;background:var(--brand-yellow);border-radius:4px;display:inline-block}
 .logo-text{font-family:Georgia,"Times New Roman",serif;font-size:1.25rem;letter-spacing:.04em}
 .hero-copy{max-width:40ch}
 .headline{margin:.25rem 0 1rem;font-weight:800;font-size:clamp(2.25rem,5.5vw,4rem);line-height:1.05}
-.lede{color:#e8e8e8;font-size:clamp(1rem,2.2vw,1.125rem);margin-bottom:1.6rem}
-.btn-cta{display:inline-block;background:var(--brand-yellow);color:#000;text-decoration:none;font-weight:800;padding:.9rem 1.2rem;border-radius:6px;box-shadow:0 2px 0 rgba(0,0,0,.25);transition:transform 160ms ease,box-shadow 160ms ease,filter 160ms ease}
+.lede{color:#e8e8e8;font-size:clamp(1rem,2.2vw,1.125rem);margin-bottom:1.2rem}
+
+
+/* Center the CTA under the paragraph */
+.cta{ text-align:center; }
+.btn-cta{display:inline-block;background:var(--brand-yellow);color:#000;text-decoration:none;font-weight:800;padding:.9rem 1.2rem;border-radius:6px;box-shadow:0 2px 0 rgba(0,0,0,.25);transition:transform 160ms ease,box-shadow 160ms ease,filter 160ms ease;margin:0 auto}
 .btn-cta:hover,.btn-cta:focus-visible{transform:translateY(-1px);box-shadow:0 6px 14px rgba(0,0,0,.28);filter:brightness(1.02);outline:none}
 .btn-cta .cta-sub{display:block;font-weight:700;font-size:.9em}
+
+
 .hero-right{position:relative}
 .hero-right img{width:100%;height:100%;object-fit:cover;object-position:center}
 
 
-/* ===== JUSTIFICATION: horizontal row, never vertical ===== */
+/* ===== JUSTIFICATION: horizontal (Labubu = Spotify = Water) ===== */
 .justification{background:#fff;text-align:center;padding:clamp(1.5rem,4vw,3rem) 1rem 2.4rem}
-.equation{
-display:flex; /* horizontal by default */
-align-items:center;
-justify-content:center;
-gap:clamp(1rem,4vw,2.5rem);
-max-width:1100px;
-margin:0 auto;
-flex-wrap:nowrap; /* do not stack */
-overflow-x:auto; /* allow horizontal scroll if screen is very narrow */
-padding-inline:0.5rem;
-}
+.equation{display:flex;align-items:center;justify-content:center;gap:clamp(1rem,4vw,2.5rem);max-width:1100px;margin:0 auto;flex-wrap:nowrap;overflow-x:auto;padding-inline:.5rem}
 .item{margin:0;text-align:center;flex:0 0 auto}
 .item figcaption{margin-top:.75rem;font-weight:800}
-.img-wrap{width:clamp(95px,18vw,160px);margin:0 auto;position:relative}
+.img-wrap{width:clamp(100px,18vw,160px);margin:0 auto;position:relative}
 .circle-bg::before{content:"";position:absolute;inset:-12%;background:radial-gradient(ellipse at center,#f0f0f0 0%,#ffffff 70%);border-radius:50%;z-index:0}
 .circle-bg img{position:relative;z-index:1;margin:0 auto}
-.equals{font-size:clamp(1.6rem,5vw,3.2rem);font-weight:900;color:#1f1f1f;flex:0 0 auto}
+.equals{font-size:clamp(1.8rem,5vw,3.2rem);font-weight:900;color:#1f1f1f;line-height:1;flex:0 0 auto}
 .bottom-band{height:6px;background:var(--brand-yellow);margin:clamp(1.1rem,3vw,1.8rem) auto 0;max-width:1100px}
 .tagline{margin:.6rem auto 0;max-width:1100px;font-weight:800;color:#222}
 
 
-/* ===== Responsive: keep hero side-by-side until very small screens ===== */
-@media (max-width:700px){
-.hero{grid-template-columns:1fr} /* stack only on very small screens */
+/* ===== Responsive: stack only on very small widths ===== */
+@media (max-width:720px){
+.hero{grid-template-columns:1fr}
 .hero-right{order:2}
 .hero-left{padding:2rem 1.25rem}
 .hero-copy{max-width:46ch}
