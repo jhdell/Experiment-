@@ -1,18 +1,20 @@
+<!-- ======================= index.html ======================= -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="charity: water — Skip the Trend. Fund a Life." />
+<meta name="description" content="charity: water landing page — Skip the Trend. Fund a Life." />
 <title>charity: water — Skip the Trend. Fund a Life.</title>
 
 
-<!-- Beginner‑friendly fonts close to the mockup -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet" />
 
 
+<!-- Site CSS -->
 <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -20,52 +22,38 @@
 
 
 <main id="main">
-<!-- ===== HERO: left black panel with stacked headline + right hero photo ===== -->
+<!-- ================= HERO (text left, image right) ================= -->
 <section class="hero" aria-label="Skip the Trend. Fund a Life.">
 <div class="hero-left">
-<header class="brand" aria-label="charity: water brand">
 <a class="logo" href="#" aria-label="charity: water home">
 <span class="logo-icon" aria-hidden="true"></span>
 <span class="logo-text">charity: water</span>
 </a>
-</header>
 
 
 <div class="hero-copy">
 <h1 class="headline">Skip the<br />Trend.<br />Fund a Life.</h1>
-
-
-<p class="lede">
-The next viral sensation fades fast. But for $40 or the cost of one Labubu, you can give someone water for life. By supporting Charity: Water and the Yellow Can, your gift will fund visible water projects that will be remembered far longer than any Labubu... or Beanie Baby.
+<p class="lede">The next viral sensation fades fast. But for $40 or the cost of one Labubu, you can give someone water for life. By supporting Charity: Water and the Yellow Can, your gift will fund visible water projects that will be remembered far longer than any Labubu... or Beanie Baby.</p>
+<p>
+<a class="btn-cta" href="#how-to-help" role="button">Find Out How to Help Here<span class="cta-sub">(Or just buy a Labubu)</span></a>
 </p>
-
-
-<!-- Centered, two‑line CTA just like the mockup -->
-<div class="cta">
-<a class="btn-cta" href="#how-to-help" role="button" aria-label="Find out how to help with charity: water">
-Find Out How to Help Here
-<span class="cta-sub">(Or just buy a Labubu)</span>
-</a>
-</div>
 </div>
 </div>
 
 
-<!-- Right‑side hero image ⚠️ Replace src with img/hero.jpg when you upload assets -->
 <div class="hero-right">
-<img src="https://placehold.co/1200x1400/jpg?text=Hero+Photo" alt="Smiling child and sibling filling a yellow jerrycan at a water pump" />
+<!-- Replace with your real asset -->
+<img src="https://placehold.co/1200x1400/jpg?text=Hero+Photo" alt="Smiling child filling a jerrycan at a water pump" />
 </div>
 </section>
 
 
-<!-- ===== JUSTIFICATION: perfectly centered, horizontal Labubu = Spotify = Water ===== -->
+<!-- ================= EQUATION (centered under hero) ================= -->
 <section id="how-to-help" class="justification" aria-label="The Average College Students’s Economic Justification for Charity">
-<div class="equation-outer">
-<div class="equation" role="group" aria-label="Labubu equals Spotify equals Clean Water">
-<!-- 1) Labubu -->
+<div class="equation" role="group" aria-label="Labubu equals Spotify Premium equals Clean Water for Life">
+<!-- Item 1 -->
 <figure class="item">
-<div class="tile circle-bg">
-<!-- ⚠️ Replace with img/labubu.png -->
+<div class="img-wrap circle-bg">
 <img src="https://placehold.co/300x300/png?text=Labubu" alt="Labubu toy" />
 </div>
 <figcaption>1 Labubu</figcaption>
@@ -75,10 +63,9 @@ Find Out How to Help Here
 <div class="equals" aria-hidden="true">=</div>
 
 
-<!-- 2) Spotify -->
+<!-- Item 2 -->
 <figure class="item">
-<div class="tile circle-bg">
-<!-- ⚠️ Replace with img/spotify.png -->
+<div class="img-wrap circle-bg">
 <img src="https://placehold.co/300x300/png?text=Spotify" alt="Spotify logo" />
 </div>
 <figcaption>4 Months of Spotify<br />Premium</figcaption>
@@ -88,15 +75,13 @@ Find Out How to Help Here
 <div class="equals" aria-hidden="true">=</div>
 
 
-<!-- 3) Water -->
+<!-- Item 3 -->
 <figure class="item">
-<div class="tile circle-bg">
-<!-- ⚠️ Replace with img/water-drop.png -->
-<img src="https://placehold.co/300x300/png?text=Water" alt="Water drop icon" />
+<div class="img-wrap circle-bg">
+<img src="https://placehold.co/300x300/png?text=Water" alt="Water droplet icon" />
 </div>
 <figcaption>Clean Water for Life</figcaption>
 </figure>
-</div>
 </div>
 
 
@@ -106,6 +91,6 @@ Find Out How to Help Here
 </main>
 
 
-<footer class="site-footer" role="contentinfo" aria-label="Footer"></footer>
+<footer class="site-footer" role="contentinfo"></footer>
 </body>
 </html>
